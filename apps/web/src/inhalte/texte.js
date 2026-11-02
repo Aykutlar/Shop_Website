@@ -16,11 +16,11 @@ export const MARKE = 'Atelier Namenszug';
 
 // Deine Angaben für Impressum und Datenschutz. Vor dem Livegang ausfüllen.
 export const RECHTLICHES = {
-  betreiber: '[Name / Firma des Betreibers]',
-  strasse: '[Straße und Hausnummer]',
-  ort: '[PLZ und Ort]',
-  email: '[E-Mail-Adresse]',
-  telefon: '[Telefonnummer]',
+  betreiber: 'Batuhan Aykut',
+  strasse: 'Pastorenweg 52',
+  ort: '28237 Bremen',
+  email: 'info@aplus-partforge.com',
+  telefon: '+49 (0) 162 2858541',
   ustId: '[USt-IdNr., falls vorhanden]',
   hoster: 'Strato GmbH, [Adresse laut Vertrag prüfen]',
 };
