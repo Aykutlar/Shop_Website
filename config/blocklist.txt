@@ -1,0 +1,17 @@
+# Begriffe, die nicht gefertigt werden. Teilstring, Kleinschreibung. Liste bitte selbst ergänzen.
+# Verfassungsfeindliches / Beleidigungen
+hitler
+nazi
+arsch
+hurensohn
+wichser
+fotze
+# Bekannte Marken und Figuren
+disney
+pokemon
+pikachu
+coca-cola
+nike
+adidas
+ferrari
+harry potter

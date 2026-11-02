@@ -1,0 +1,18 @@
+# Installierte Pakete und Build-Ergebnisse
+node_modules/
+.next/
+apps/web/public/vendor/
+apps/web/public/fonts/
+__pycache__/
+
+# Lokale Daten: Testdatenbank und erzeugte Beispielmodelle
+.data/
+out/
+
+# Zugangsdaten gehören nie in die Versionsverwaltung
+.env
+.env.*
+
+# Einstellungen dieses Rechners
+.claude/
+.vscode/

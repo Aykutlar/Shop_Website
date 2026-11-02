@@ -1,0 +1,13 @@
+{
+  "name": "ornament-system",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "website": "npm run dev --workspace=apps/web",
+    "pruefen": "node --test packages/geometry/validate.test.mjs apps/web/src/lib/code.test.mjs && node db/schema.test.mjs db/schema.sql && npm run build --workspace=apps/web"
+  }
+}

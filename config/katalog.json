@@ -1,0 +1,71 @@
+{
+  "version": "2026.1-draft",
+  "currency": "EUR",
+  "legal": {
+    "manufacturer": { "name": "<Name>", "address": "<Anschrift>", "email": "<E-Mail>" },
+    "warnings_de": [
+      "Dekorationsartikel, kein Spielzeug.",
+      "Nicht in die Hände kleiner Kinder geben – Bruchgefahr, Kleinteile.",
+      "Von offener Flamme und Hitzequellen fernhalten."
+    ],
+    "price_note_de": "Preise inkl. MwSt., zzgl. Versand. Bestellung und Bezahlung erfolgen über Etsy."
+  },
+  "nozzles": {
+    "n04": { "label": "0,4 mm (Standard)", "min_feature_mm": 1.2, "min_gap_mm": 0.8, "hole_min_mm": 4.0, "hole_wall_min_mm": 2.0, "slicer_profile_key": "p1s_04" },
+    "n02": { "label": "0,2 mm (Fein)",     "min_feature_mm": 0.6, "min_gap_mm": 0.5, "hole_min_mm": 3.0, "hole_wall_min_mm": 1.5, "slicer_profile_key": "p1s_02" }
+  },
+  "printer": { "model": "Bambu Lab P1S", "bed_mm": [256, 256], "max_height_mm": 256, "ams_slots": 4 },
+  "materials": {
+    "petg": { "label": "PETG – zäh, bruchfest (empfohlen)", "slicer_filament_key": "bambu_petg_hf", "enabled": true },
+    "pla_tough": { "label": "PLA Tough+ – matt, steif", "slicer_filament_key": "bambu_pla_tough_plus", "enabled": false }
+  },
+  "colors": [
+    { "id": "ivory",    "label": "Elfenbein",   "hex": "#EDE6D6", "material": "petg", "in_stock": true },
+    { "id": "gold",     "label": "Gold",        "hex": "#C9A13B", "material": "petg", "in_stock": true },
+    { "id": "silver",   "label": "Silber",      "hex": "#B9BDC2", "material": "petg", "in_stock": true },
+    { "id": "bordeaux", "label": "Bordeaux",    "hex": "#6E1423", "material": "petg", "in_stock": true },
+    { "id": "red",      "label": "Weihnachtsrot", "hex": "#B3222A", "material": "petg", "in_stock": true },
+    { "id": "green",    "label": "Tannengrün",  "hex": "#1F5A3A", "material": "petg", "in_stock": true },
+    { "id": "navy",     "label": "Nachtblau",   "hex": "#1B2A4A", "material": "petg", "in_stock": true },
+    { "id": "black",    "label": "Schwarz",     "hex": "#1A1A1C", "material": "petg", "in_stock": true }
+  ],
+  "fonts": [
+    { "id": "pacifico",     "label": "Pacifico",       "family": "Pacifico",       "license": "OFL-1.1", "style": "script", "nozzles": ["n04", "n02"] },
+    { "id": "dancing_bold", "label": "Dancing Script", "family": "Dancing Script", "license": "OFL-1.1", "style": "script", "nozzles": ["n04", "n02"] },
+    { "id": "nunito_black", "label": "Nunito",         "family": "Nunito",         "license": "OFL-1.1", "style": "sans",   "nozzles": ["n04", "n02"] }
+  ],
+  "shapes": [
+    { "id": "wreath", "label": "Kranz",           "frames": ["snowflakes", "stars", "fir", "plain"], "supports_year": true },
+    { "id": "bauble", "label": "Christbaumkugel", "frames": ["plain", "snowflakes", "stars", "fir"], "supports_year": true },
+    { "id": "star",   "label": "Stern",           "frames": ["plain"], "supports_year": false },
+    { "id": "tree",   "label": "Tanne",           "frames": ["plain"], "supports_year": false },
+    { "id": "pure",   "label": "Nur Schriftzug",  "frames": ["plain"], "supports_year": false }
+  ],
+  "frames": [
+    { "id": "plain",      "label": "Schlicht" },
+    { "id": "snowflakes", "label": "Schneeflocken" },
+    { "id": "stars",      "label": "Sterne" },
+    { "id": "fir",        "label": "Tannenzweige" }
+  ],
+  "symbols": [
+    { "id": "none",      "label": "Ohne" },
+    { "id": "star",      "label": "Stern" },
+    { "id": "heart",     "label": "Herz" },
+    { "id": "snowflake", "label": "Schneeflocke" },
+    { "id": "bell",      "label": "Glocke" }
+  ],
+  "sizes": [
+    { "id": "s60",  "label": "Klein",  "diameter_mm": 60,  "nozzles": ["n04", "n02"], "unit_price_cents": 1290, "etsy_listing_id": null },
+    { "id": "m80",  "label": "Mittel", "diameter_mm": 80,  "nozzles": ["n04"],        "unit_price_cents": 1490, "etsy_listing_id": null },
+    { "id": "l100", "label": "Groß",   "diameter_mm": 100, "nozzles": ["n04"],        "unit_price_cents": 1790, "etsy_listing_id": null }
+  ],
+  "thickness_mm": { "n04": [2.5, 3.0, 4.0], "n02": [2.0, 2.5] },
+  "text": {
+    "name_min_chars": 2,
+    "name_max_chars": 12,
+    "allowed_chars_regex": "^[A-Za-zÄÖÜäöüßÉÈéèÀàÇçŞşĞğİıÑñ' -]+$",
+    "year": { "enabled": true, "min": 2020, "max": 2099 }
+  },
+  "quantity": { "min": 1, "max": 20 },
+  "hanger": { "type": "eyelet", "hole_mm": 4.0, "outer_mm": 9.0 }
+}

@@ -1,0 +1,15 @@
+/* Lädt die Schriftdateien. Hier musst du normalerweise nichts ändern. */
+@font-face { font-family: 'Cormorant Garamond'; font-weight: 400; font-style: normal; font-display: swap; src: url('/fonts/cormorant-garamond-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-weight: 400; font-style: normal; font-display: swap; src: url('/fonts/cormorant-garamond-latin-ext-400-normal.woff2') format('woff2'); unicode-range: U+0100-024F; }
+@font-face { font-family: 'Cormorant Garamond'; font-weight: 500; font-style: normal; font-display: swap; src: url('/fonts/cormorant-garamond-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-weight: 400; font-style: italic; font-display: swap; src: url('/fonts/cormorant-garamond-latin-400-italic.woff2') format('woff2'); }
+@font-face { font-family: 'Jost'; font-weight: 300; font-display: swap; src: url('/fonts/jost-latin-300-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Jost'; font-weight: 400; font-display: swap; src: url('/fonts/jost-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Jost'; font-weight: 400; font-display: swap; src: url('/fonts/jost-latin-ext-400-normal.woff2') format('woff2'); unicode-range: U+0100-024F; }
+@font-face { font-family: 'Jost'; font-weight: 500; font-display: swap; src: url('/fonts/jost-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Pacifico'; font-display: swap; src: url('/fonts/pacifico-latin-400-normal.woff') format('woff'); }
+@font-face { font-family: 'Pacifico'; font-display: swap; src: url('/fonts/pacifico-latin-ext-400-normal.woff') format('woff'); unicode-range: U+0100-024F; }
+@font-face { font-family: 'Dancing Script'; font-weight: 700; font-display: swap; src: url('/fonts/dancing-script-latin-700-normal.woff') format('woff'); }
+@font-face { font-family: 'Dancing Script'; font-weight: 700; font-display: swap; src: url('/fonts/dancing-script-latin-ext-700-normal.woff') format('woff'); unicode-range: U+0100-024F; }
+@font-face { font-family: 'Nunito'; font-weight: 900; font-display: swap; src: url('/fonts/nunito-latin-900-normal.woff') format('woff'); }
+@font-face { font-family: 'Nunito'; font-weight: 900; font-display: swap; src: url('/fonts/nunito-latin-ext-900-normal.woff') format('woff'); unicode-range: U+0100-024F; }
