@@ -1,0 +1,24 @@
+/* Abschnitte unter dem Konfigurator: Zusagen, Fertigung, Ablauf, Fragen. */
+.band { padding: clamp(72px, 10vw, 140px) var(--gutter); border-top: 1px solid var(--line); }
+.band.alt { background: var(--night-2); }
+.band.wine { background: radial-gradient(90% 120% at 15% 0%, #611025 0%, var(--wine) 45%, var(--wine-deep) 100%); }
+.band.wine .columns p { color: #e4d6c6; }
+.band.paper { background: var(--paper); color: var(--ink); border-top: 0; }
+.band.paper .eyebrow { color: #8a2133; }
+.band.paper details { border-color: rgba(74, 12, 26, 0.2); }
+.band.paper details p { color: #54443a; }
+.narrow { max-width: 860px; margin: 0 auto; }
+.assurance { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; padding: 40px var(--gutter); background: var(--wine-deep); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.assurance h3 { font-size: 23px; color: var(--brass-soft); margin-bottom: 6px; }
+.assurance h3::before { content: '✦'; margin-right: 10px; font-size: 13px; vertical-align: 3px; color: var(--brass); }
+.assurance p { font-size: 15px; color: #dccfbf; }
+.band h2 { max-width: 16em; margin-bottom: 52px; }
+.columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 4vw, 64px); }
+.columns h3, .timeline h3 { margin-bottom: 12px; }
+.columns p, .timeline p, details p { color: var(--ivory-dim); }
+.timeline { list-style: none; counter-reset: s; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(24px, 3vw, 48px); margin: 0; padding: 0; }
+.timeline li { counter-increment: s; border-top: 1px solid var(--brass); padding-top: 18px; }
+.timeline li::before { content: '0' counter(s); display: block; font-size: 13px; letter-spacing: 0.14em; color: var(--brass); margin-bottom: 14px; }
+details { border-bottom: 1px solid var(--line); padding: 20px 0; }
+summary { cursor: pointer; font-family: var(--serif); font-size: 24px; list-style-position: outside; }
+details p { margin-top: 12px; max-width: 40em; }

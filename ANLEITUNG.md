@@ -16,18 +16,29 @@ Lass das schwarze Fenster offen. Wenn du eine Datei speicherst (`Strg + S`), zei
 
 ## 3. Was du wo änderst
 
+**Alles, was du regelmäßig änderst, liegt im Ordner `einstellungen`.** Dort kannst du nichts an der Technik beschädigen.
+
 | Das möchtest du ändern | Datei |
 |---|---|
-| Texte, Überschriften, Fragen, Shop-Name, Impressums-Angaben | `apps/web/src/inhalte/texte.js` |
-| Farben der Website | `apps/web/src/app/farben.css` |
-| Schnee, Girlande, Kugeln, Start-Anhänger | `apps/web/src/inhalte/deko.js` |
-| Preise, Größen, Stärken, Farben der Anhänger, Filamente, Namenslänge | `config/katalog.json` |
-| Gesperrte Wörter | `config/blocklist.txt` |
-| Datenschutz-Text | `apps/web/src/app/datenschutz/page.js` |
+| Texte, Überschriften, Fragen, Shop-Name, Impressums-Angaben | `einstellungen/texte.js` |
+| Farben und Schriften der Website | `einstellungen/farben.css` |
+| Schnee, Girlande, Kugeln, Start-Anhänger | `einstellungen/deko.js` |
+| Preise, Größen, Stärken, Farben der Anhänger, Filamente, Namenslänge | `einstellungen/katalog.json` |
+| Gesperrte Wörter | `einstellungen/gesperrte-woerter.txt` |
+
+Für größere Änderungen am Aufbau:
+
+| Das möchtest du ändern | Datei |
+|---|---|
+| Reihenfolge der Abschnitte auf der Startseite, Abschnitt entfernen | `website/app/page.js` |
+| Reihenfolge der Auswahlschritte im Konfigurator | `website/konfigurator/Schritte.js` |
+| Aufbau eines einzelnen Abschnitts | `website/abschnitte/` |
+| Abstände, Größen, Handy-Ansicht | `website/stil/` |
+| Datenschutz-Text und Impressum | `website/app/datenschutz/page.js`, `website/app/impressum/page.js` |
 
 ## 4. Beispiele
 
-**Überschrift ändern** in `texte.js`:
+**Überschrift ändern** in `einstellungen/texte.js`:
 
 ```js
 ueberschrift1: 'Ein Name.',
@@ -87,13 +98,14 @@ Die `id` muss eindeutig sein. `"in_stock": false` blendet eine Farbe aus.
 "etsy_listing_id": 1234567890
 ```
 
-## 5. Die drei häufigsten Fehler
+## 5. Die häufigsten Fehler
 
 Wenn die Seite nach dem Speichern eine rote Fehlermeldung zeigt, liegt es fast immer daran. Die Meldung ist auf Englisch und nennt die Datei und die Zeile (`line 4`). Das ist keine Katastrophe: Sobald der Fehler behoben und gespeichert ist, erscheint die Seite von selbst wieder.
 
 1. **Komma vergessen.** In den Listen endet jeder Eintrag außer dem letzten mit einem Komma. In `katalog.json` darf nach dem **letzten** Eintrag **kein** Komma stehen.
 2. **Anführungszeichen fehlt** oder wurde gelöscht. Text steht immer zwischen zwei Zeichen. Ein Apostroph im Text wird in `texte.js` so geschrieben: `'Das ist\'s'`.
 3. **Falsche Klammer gelöscht.** Klammern `{ }` und `[ ]` kommen immer paarweise.
+4. **`address already in use` beim Start.** Die Website läuft schon in einem anderen schwarzen Fenster. Dieses Fenster schließen oder dort einfach weiterarbeiten.
 
 Mit `Strg + Z` machst du eine Änderung rückgängig. Danach speichern, und die Seite läuft wieder.
 
@@ -134,30 +146,37 @@ Nicht gesichert werden die Testdatenbank (`.data`), die Beispielmodelle (`out`) 
 
 Diese Ordner enthalten die Technik. Änderungen können die Druckdateien oder die Sicherheit beeinflussen:
 
-| Ordner oder Datei | Inhalt |
+| Ordner | Inhalt |
 |---|---|
-| `packages/geometry` | Berechnet die Anhänger und die Druckdateien |
-| `services/qc` | Qualitätsprüfung der Modelle |
-| `db` | Datenbank und Freigaberegeln |
-| `apps/web/src/app/api` | Speichern der Konfigurationen |
-| `apps/web/src/components` | Bausteine der Oberfläche. Für Änderungen am Aufbau, nicht an Texten |
-| `node_modules`, `.next`, `.data`, `out` | Werden automatisch erzeugt |
+| `anhaenger` | Berechnet die Anhänger und die Druckdateien |
+| `pruefung` | Unabhängige Qualitätsprüfung der Modelle |
+| `datenbank` | Datenbank und Freigaberegeln |
+| `website/technik` | Vorschau-Rechner, Speichern, Code-Erzeugung |
+| `website/app/api` | Nimmt gesicherte Gestaltungen entgegen |
+| `node_modules`, `.next`, `.data`, `out`, `website/public` | Werden automatisch erzeugt |
 
 ## 9. Überblick über die Struktur
 
 ```text
-Website-starten.bat       Startet die Website mit Doppelklick
-ANLEITUNG.md              Diese Anleitung
-config/
-  katalog.json            Produktoptionen und Preise
-  blocklist.txt           Gesperrte Wörter
-apps/web/src/
-  inhalte/
-    texte.js              Alle Texte
-    deko.js               Dekoration und Start-Anhänger
-  app/
-    farben.css            Farben
-    globals.css           Layout, Abstände, Größen
-    page.js               Reihenfolge der Abschnitte auf der Startseite
-    impressum/, datenschutz/
+Shop_Website/
+  ANLEITUNG.md             Diese Anleitung
+  Website-starten.bat      Startet die Website mit Doppelklick
+  einstellungen/           HIER ÄNDERST DU ALLES WICHTIGE
+  website/                 Die Website
+    app/                   Die Seiten: Start, Impressum, Datenschutz
+    abschnitte/            Kopfzeile, Zusagen, Fertigung, Ablauf, Fragen, Fußzeile
+    konfigurator/          Bühne, 3D-Anhänger, Auswahlschritte, Preisleiste, Code-Fenster
+    stil/                  Aussehen, nach Thema getrennt
+    technik/               Rechner und Speichern im Hintergrund
+  anhaenger/               Berechnet Anhänger und Druckdateien
+  pruefung/                Prüft die fertigen Modelle
+  datenbank/               Aufbau der Datenbank und Freigaberegeln
+  dokumentation/           Planung und Hintergründe
 ```
+
+## 10. Vor dem Livegang
+
+- `einstellungen/texte.js`: Shop-Name und alle Angaben in eckigen Klammern
+- `einstellungen/katalog.json`: Preise, `etsy_listing_id` je Größe, Herstellerangaben, verfügbare Farben
+- `einstellungen/gesperrte-woerter.txt`: Liste ergänzen
+- `website/technik/datenbank.js`: lokale Datenbank gegen PostgreSQL tauschen (übernimmt Claude)

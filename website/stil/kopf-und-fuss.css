@@ -1,0 +1,10 @@
+/* Kopfzeile und Fußzeile. */
+.site-header { position: fixed; inset: 0 0 auto 0; height: var(--header); z-index: 20; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 var(--gutter); background: rgba(11, 26, 20, 0.92); backdrop-filter: blur(6px); }
+.brand-star { color: var(--brass); margin-right: 10px; font-size: 15px; }
+.brand { font-family: var(--serif); font-size: 24px; letter-spacing: 0.02em; text-decoration: none; white-space: nowrap; }
+.site-header nav { display: flex; gap: clamp(14px, 2.4vw, 34px); }
+.site-header nav a { text-decoration: none; font-size: 14px; letter-spacing: 0.08em; color: var(--ivory-dim); transition: color 0.2s; }
+.site-header nav a:hover { color: var(--brass-soft); }
+.site-footer { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px 32px; align-items: center; padding: 40px var(--gutter); border-top: 1px solid var(--line); }
+.site-footer nav { display: flex; gap: 24px; font-size: 15px; }
+.site-footer .caption { grid-column: 1 / -1; }

@@ -1,13 +1,26 @@
 {
-  "name": "ornament-system",
+  "name": "shop-website",
   "private": true,
   "type": "module",
-  "workspaces": [
-    "packages/*",
-    "apps/*"
-  ],
   "scripts": {
-    "website": "npm run dev --workspace=apps/web",
-    "pruefen": "node --test packages/geometry/validate.test.mjs apps/web/src/lib/code.test.mjs && node db/schema.test.mjs db/schema.sql && npm run build --workspace=apps/web"
+    "website": "node website/skripte/dateien-kopieren.mjs && next dev website --webpack -p 3210",
+    "bauen": "node website/skripte/dateien-kopieren.mjs && next build website --webpack",
+    "starten": "next start website -p 3210",
+    "modelle": "node anhaenger/testreihe.mjs out",
+    "pruefen": "node --test anhaenger/eingabepruefung.test.mjs website/technik/code.test.mjs && node datenbank/schema.test.mjs datenbank/schema.sql && npm run bauen"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "^0.5.14",
+    "@fontsource/cormorant-garamond": "^5.3.0",
+    "@fontsource/dancing-script": "^5.3.0",
+    "@fontsource/jost": "^5.3.0",
+    "@fontsource/nunito": "^5.3.0",
+    "@fontsource/pacifico": "^5.3.0",
+    "manifold-3d": "^3.5.4",
+    "next": "^16.4.3",
+    "opentype.js": "^2.0.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "three": "^0.187.0"
   }
 }

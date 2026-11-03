@@ -1,8 +1,7 @@
 # Installierte Pakete und Build-Ergebnisse
 node_modules/
 .next/
-apps/web/public/vendor/
-apps/web/public/fonts/
+website/public/
 __pycache__/
 
 # Lokale Daten: Testdatenbank und erzeugte Beispielmodelle

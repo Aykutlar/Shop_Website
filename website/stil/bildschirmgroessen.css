@@ -1,0 +1,40 @@
+/* Anpassungen für Tablet und Handy sowie für reduzierte Animationen. */
+@media (max-width: 1000px) {
+  :root { --header: 58px; }
+  body { font-size: 16px; }
+  .site-header { background: var(--night); }
+  .site-header nav a:not(:first-child) { display: none; }
+  .site-header nav a:first-child { font-size: 13px; }
+  .workshop { display: block; padding-top: var(--header); }
+  .stage { position: sticky; top: var(--header); height: 44vh; height: 44svh; z-index: 5; }
+  .stage-foot { bottom: 10px; }
+  .stage-dims { font-size: 17px; }
+  .stage-note { font-size: 12px; }
+  .intro { min-height: 0; padding: 36px 0 40px; gap: 18px; }
+  .summary { z-index: 6; }
+  .columns, .timeline { grid-template-columns: 1fr; }
+  .assurance { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .garland { inset: 0 0 auto 0; height: 92px; }
+  .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .font-sample { font-size: 22px; }
+}
+
+@media (max-width: 480px) {
+  .site-footer { grid-template-columns: minmax(0, 1fr); }
+  .assurance { grid-template-columns: 1fr; gap: 18px; }
+  .site-header nav { display: none; }
+  .band h2 { margin-bottom: 36px; }
+  .summary { grid-template-columns: auto minmax(0, 1fr); }
+  .summary .button { grid-column: 1 / -1; }
+  .stage-note { display: none; }
+  .option { padding: 10px 8px; }
+  .grid.five { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .font-card { min-height: 84px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .bokeh i { animation: none; opacity: 0.5; }
+  .fairy { animation: none; opacity: 0.85; }
+  * { transition: none !important; }
+}

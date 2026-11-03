@@ -1,0 +1,6 @@
+/* Impressum und Datenschutz. */
+.legal { max-width: 760px; margin: 0 auto; padding: calc(var(--header) + 48px) var(--gutter) 96px; }
+.legal h1 { font-size: clamp(38px, 5vw, 56px); margin-bottom: 32px; }
+.legal h2 { font-size: 26px; margin: 32px 0 10px; }
+.legal p { color: var(--ivory-dim); }
+.draft { border: 1px dashed var(--danger); padding: 12px 16px; margin-bottom: 32px; font-size: 15px; color: var(--danger) !important; }

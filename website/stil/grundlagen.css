@@ -1,0 +1,26 @@
+/* Grundlagen: Überschriften, kleine Texte und Knöpfe. */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header) + 16px); background: var(--night); }
+body { margin: 0; background: var(--night); color: var(--ivory); font: 300 17px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.08; margin: 0; }
+h1 { font-size: clamp(46px, 6vw, 84px); letter-spacing: -0.01em; }
+h1 em { color: var(--brass-soft); }
+h2 { font-size: clamp(34px, 4vw, 54px); }
+h3 { font-size: 26px; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--brass-soft); outline-offset: 3px; }
+
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 16px; top: 12px; z-index: 30; background: var(--ivory); color: var(--night); padding: 8px 14px; }
+
+.eyebrow { font-size: 13px; font-weight: 400; letter-spacing: 0.24em; text-transform: uppercase; color: var(--brass); margin-bottom: 18px; }
+.caption { font-size: 14px; color: var(--ivory-dim); line-height: 1.45; }
+.caption.strong { color: var(--ivory); font-weight: 400; font-size: 16px; }
+.button { display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 14px 34px; font: 400 15px var(--sans); letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; cursor: pointer; border: 1px solid var(--brass); transition: background 0.25s, color 0.25s, transform 0.25s; }
+.button.ghost { background: transparent; color: var(--brass-soft); }
+.button.ghost:hover { background: var(--brass); color: var(--night); }
+.button.solid { width: 100%; background: var(--foil); color: var(--wine-deep); border-color: transparent; font-weight: 500; }
+.button.solid:hover:not(:disabled) { filter: brightness(1.08); }
+.button:disabled { opacity: 0.45; cursor: not-allowed; }
+.button.small { min-height: 42px; padding: 8px 18px; font-size: 13px; }
