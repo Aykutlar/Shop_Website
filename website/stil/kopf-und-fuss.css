@@ -1,10 +1,14 @@
-/* Kopfzeile und Fußzeile. */
-.site-header { position: fixed; inset: 0 0 auto 0; height: var(--header); z-index: 20; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 var(--gutter); background: rgba(11, 26, 20, 0.92); backdrop-filter: blur(6px); }
-.brand-star { color: var(--brass); margin-right: 10px; font-size: 15px; }
-.brand { font-family: var(--serif); font-size: 24px; letter-spacing: 0.02em; text-decoration: none; white-space: nowrap; }
-.site-header nav { display: flex; gap: clamp(14px, 2.4vw, 34px); }
-.site-header nav a { text-decoration: none; font-size: 14px; letter-spacing: 0.08em; color: var(--ivory-dim); transition: color 0.2s; }
-.site-header nav a:hover { color: var(--brass-soft); }
-.site-footer { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px 32px; align-items: center; padding: 40px var(--gutter); border-top: 1px solid var(--line); }
-.site-footer nav { display: flex; gap: 24px; font-size: 15px; }
-.site-footer .caption { grid-column: 1 / -1; }
+/* Schmale, editoriale Kopfzeile und ruhiger Abschluss der Seite. */
+.site-header { position: fixed; inset: 0 0 auto; height: var(--header); z-index: 20; border-bottom: 1px solid rgba(231,210,165,.16); display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 0 var(--gutter); background: rgba(16,35,29,.94); backdrop-filter: blur(14px); }
+.brand-star { color: var(--brass); margin-right: 12px; font-size: 13px; vertical-align: 3px; }
+.brand { font-family: var(--serif); font-size: 27px; letter-spacing: .015em; text-decoration: none; white-space: nowrap; }
+.site-header nav { display: flex; align-items: center; gap: clamp(16px, 2.7vw, 40px); }
+.site-header nav a { position: relative; text-decoration: none; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ivory-dim); transition: color .2s; }
+.site-header nav a::after { content: ''; position: absolute; left: 0; right: 100%; bottom: -8px; height: 1px; background: var(--brass); transition: right .22s ease; }
+.site-header nav a:hover { color: var(--ivory); }
+.site-header nav a:hover::after { right: 0; }
+.site-footer { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 14px 32px; align-items: center; padding: 38px var(--gutter) 30px; border-top: 1px solid var(--line); background: #0d1e19; }
+.site-footer nav { display: flex; gap: 24px; font-size: 13px; }
+.site-footer nav a { text-decoration: none; color: var(--ivory-dim); transition: color .2s; }
+.site-footer nav a:hover { color: var(--brass-soft); }
+.site-footer .caption { grid-column: 1 / -1; padding-top: 14px; border-top: 1px solid rgba(197,164,106,.14); }

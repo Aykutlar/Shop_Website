@@ -1,40 +1,21 @@
-/*
-  FARBEN UND SCHRIFTEN DER WEBSITE
-
-  Änderst du hier eine Farbe, ändert sie sich überall auf der Seite.
-  Farben sind sechsstellige Codes hinter dem #-Zeichen.
-  Einen Code findest du zum Beispiel, wenn du bei Google "color picker" suchst.
-*/
+/* Zentrales Designsystem der Atelier Namenszug Manufaktur. */
 :root {
-  /* Dunkle Hintergründe */
-  --night: #0b1a14;      /* Tannengrün, sehr dunkel: Grundfarbe der Seite */
-  --night-2: #0f2a20;    /* Tannengrün, etwas heller: Abschnitt "Ablauf" */
-  --night-3: #174233;    /* Tannengrün, hell */
-
-  /* Bordeaux */
-  --wine: #4a0c1a;       /* Abschnitt "Fertigung", gewählte Optionen */
-  --wine-deep: #2e0710;  /* Leiste mit den Zusagen */
-
-  /* Helle Farben */
-  --ivory: #f8f1e3;      /* Haupttext auf dunklem Grund */
-  --ivory-dim: #c9c3b2;  /* Nebentext auf dunklem Grund */
-  --paper: #f7f0e1;      /* Heller Abschnitt "Fragen" */
-  --ink: #2a1a14;        /* Text auf hellem Grund */
-
-  /* Gold */
-  --brass: #d4af6a;      /* Akzentfarbe, Rahmen, Sterne */
-  --brass-soft: #efd9a6; /* helleres Gold, kursive Überschrift */
-  --line: rgba(212, 175, 106, 0.3); /* feine Trennlinien */
-  --foil: linear-gradient(120deg, #b98b3c 0%, #efd9a6 46%, #c9a050 100%); /* Goldfolie auf dem Hauptknopf */
-
-  /* Fehlermeldungen */
+  --night: #10231d;
+  --night-2: #172f27;
+  --night-3: #24473a;
+  --wine: #521d2a;
+  --wine-deep: #35131c;
+  --ivory: #f6f0e5;
+  --ivory-dim: #c8c4b8;
+  --paper: #f3ecdf;
+  --ink: #28231e;
+  --brass: #c5a46a;
+  --brass-soft: #e7d2a5;
+  --line: rgba(197, 164, 106, 0.28);
+  --foil: linear-gradient(120deg, #d4bd8c 0%, #f0e1bd 50%, #c7a66b 100%);
   --danger: #f4a896;
-
-  /* Schriftarten der Website (nicht die der Anhänger) */
-  --serif: 'Cormorant Garamond', 'Times New Roman', serif; /* Überschriften */
-  --sans: 'Jost', 'Segoe UI', sans-serif;                  /* Fließtext */
-
-  /* Abstände: lieber nicht ändern */
-  --gutter: clamp(16px, 4vw, 64px);
-  --header: 68px;
+  --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+  --sans: 'Jost', 'Segoe UI', sans-serif;
+  --gutter: clamp(20px, 5vw, 76px);
+  --header: 76px;
 }
