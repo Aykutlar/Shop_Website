@@ -7,7 +7,8 @@
     "bauen": "node website/skripte/dateien-kopieren.mjs && next build website --webpack",
     "starten": "next start website -p 3210",
     "modelle": "node anhaenger/testreihe.mjs out",
-    "pruefen": "node --test anhaenger/eingabepruefung.test.mjs website/technik/code.test.mjs && node datenbank/schema.test.mjs datenbank/schema.sql && npm run bauen"
+    "auftrag": "node anhaenger/auftrag.mjs",
+    "pruefen": "node --test anhaenger/eingabepruefung.test.mjs website/technik/code.test.mjs website/technik/lager-pruefung.test.mjs && node datenbank/schema.test.mjs datenbank/schema.sql && npm run bauen"
   },
   "dependencies": {
     "@electric-sql/pglite": "^0.5.14",

@@ -25,6 +25,7 @@ Lass das schwarze Fenster offen. Wenn du eine Datei speicherst (`Strg + S`), zei
 | Schnee, Girlande, Kugeln, Start-Anhänger | `einstellungen/deko.js` |
 | Preise, Größen, Stärken, Farben der Anhänger, Filamente, Namenslänge | `einstellungen/katalog.json` |
 | Gesperrte Wörter | `einstellungen/gesperrte-woerter.txt` |
+| Grenzwerte des Filamentlagers (die Rollen selbst: Seite `/lager`) | `einstellungen/lager.js` |
 
 Für größere Änderungen am Aufbau:
 
@@ -88,7 +89,22 @@ Die Preise auf der Website müssen zu den Preisen in deinem Etsy-Angebot passen.
 { "id": "rose", "label": "Rosé", "hex": "#D8A7A0", "material": "petg", "in_stock": true },
 ```
 
-Die `id` muss eindeutig sein. `"in_stock": false` blendet eine Farbe aus.
+Die `id` muss eindeutig sein. `"in_stock": false` blendet eine Farbe aus. Im Shop erscheint die Farbe erst, wenn im Filamentlager eine passende Rolle eingetragen ist (siehe unten).
+
+**Filamente und Farben eintragen, die du hast:** Das geht auf der versteckten Seite `/lager`. So kommst du hinein:
+
+1. Einmalig im Ordner `website` eine Datei `.env.local` anlegen, darin eine Zeile mit deinem Passwort: `LAGER_PASSWORT=dein-langes-passwort`. Danach die Website neu starten. Die Datei wird von Git nie gespeichert.
+2. Auf der Seite ganz nach unten scrollen und **fünfmal schnell auf den Markennamen** in der Fußzeile klicken (auf dem Handy: tippen).
+3. Passwort eingeben. Du landest im Lager und bleibst 12 Stunden angemeldet.
+
+Wer nicht angemeldet ist, bekommt unter `/lager` nur „Seite nicht gefunden“. Ohne gesetztes Passwort kommt niemand hinein, auch du nicht.
+
+Dort trägst du jede Rolle ein: Material, Farbe, Hersteller, Restmenge in Gramm, AMS-Platz und welche Shop-Farbe sie beliefert.
+
+- Eine Shop-Farbe ist im Konfigurator nur wählbar, solange eine verknüpfte Rolle mindestens 50 g Rest hat. Ist die letzte Rolle leer, verschwindet die Farbe von selbst.
+- Rollen ohne Shop-Farbe, zum Beispiel PLA für eigene Projekte, kannst du trotzdem eintragen. Sie haben keinen Einfluss auf den Shop.
+- Beim ersten Öffnen stehen dort schon die heutigen Katalogfarben mit je 1000 g. Bitte die Mengen an deine echten Rollen anpassen.
+- Grenzwerte wie „ab wann leer“ und weitere Materialien stellst du in `einstellungen/lager.js` ein.
 
 **Neue Größe oder Stärke**: In `sizes` eine Zeile nach demselben Muster ergänzen, die Stärken stehen in `thickness_mm` unter `n04`. Die Geometrie passt sich automatisch an.
 
@@ -97,6 +113,14 @@ Die `id` muss eindeutig sein. `"in_stock": false` blendet eine Farbe aus.
 ```json
 "etsy_listing_id": 1234567890
 ```
+
+**Etsy-Bestellung fertigen:** Alles zur Einrichtung des Etsy-Shops und zum Ablauf jeder Bestellung steht in `dokumentation/etsy/01-einrichtung.md`, die Texte zum Kopieren in `dokumentation/etsy/02-texte.md`. Kurzform im Terminal:
+
+```bash
+npm run auftrag -- --angebot kranz-schneeflocken --name "Julia" --groesse Mittel --farbe Gold --bestellung 3456789012
+```
+
+Welche Angebote es gibt (Form, Verzierung, Symbol), steht in `einstellungen/etsy-angebote.json`.
 
 ## 5. Die häufigsten Fehler
 
@@ -163,7 +187,8 @@ Shop_Website/
   Website-starten.bat      Startet die Website mit Doppelklick
   einstellungen/           HIER ÄNDERST DU ALLES WICHTIGE
   website/                 Die Website
-    app/                   Die Seiten: Start, Impressum, Datenschutz
+    app/                   Die Seiten: Start, Impressum, Datenschutz, Lager
+    lager/                 Hintergrundseite für Filamente und Farben
     abschnitte/            Kopfzeile, Zusagen, Fertigung, Ablauf, Fragen, Fußzeile
     konfigurator/          Bühne, 3D-Anhänger, Auswahlschritte, Preisleiste, Code-Fenster
     stil/                  Aussehen, nach Thema getrennt
@@ -180,3 +205,5 @@ Shop_Website/
 - `einstellungen/katalog.json`: Preise, `etsy_listing_id` je Größe, Herstellerangaben, verfügbare Farben
 - `einstellungen/gesperrte-woerter.txt`: Liste ergänzen
 - `website/technik/datenbank.js`: lokale Datenbank gegen PostgreSQL tauschen (übernimmt Claude)
+- Auf dem Server `LAGER_PASSWORT` setzen (langes, zufälliges Passwort, ein anderes als lokal), sonst kommt niemand in `/lager`
+- Filamentlager auf `/lager` mit den echten Rollen und Mengen füllen

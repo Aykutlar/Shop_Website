@@ -1,0 +1,80 @@
+/* Hintergrundseite /lager: Filamente und Farben. */
+.lager { max-width: 1100px; margin: 0 auto; padding: calc(var(--header) + 40px) var(--gutter) 96px; }
+.lager-schmal { max-width: 460px; }
+.lager h1 { font-size: clamp(38px, 5vw, 56px); margin-bottom: 8px; }
+.lager h2 { font-size: 26px; }
+.lager code { font-size: 0.9em; color: var(--brass-soft); }
+.lager-kopf { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 32px; }
+.lager-kopf .caption { max-width: 420px; }
+.lager-block { border-top: 1px solid var(--line); padding: 28px 0; }
+.lager-block > .caption { margin: 8px 0 18px; max-width: 720px; }
+.lager-zeile { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+.lager-meldung { margin-bottom: 16px; color: var(--brass-soft); }
+.lager-fehler { color: var(--danger); font-size: 15px; margin: 12px 0; }
+.lager-versteckt { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Lieferbare Shop-Farben */
+.lager-shopfarben { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.lager-shopfarben li { display: flex; align-items: center; gap: 10px; padding: 8px 14px; border: 1px solid var(--line); }
+.lager-shopfarben li.is-weg { opacity: 0.55; border-style: dashed; }
+.lager-shopfarben li.is-weg .caption { color: var(--danger); }
+.lager-punkt { flex: none; width: 22px; height: 22px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.35); }
+
+/* Formular */
+.lager-form { display: grid; gap: 16px; margin: 0 0 28px; padding: 24px; border: 1px solid var(--line); background: var(--night-2); }
+.lager-form h2 { font-size: 24px; }
+.lager-felder { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.lager-form label { display: grid; gap: 6px; font-size: 14px; color: var(--ivory-dim); }
+.lager-breit { grid-column: 1 / -1; }
+.lager-form input, .lager-form select {
+  width: 100%; min-height: 44px; padding: 8px 12px; font: 400 16px var(--sans);
+  color: var(--ivory); background: var(--night); border: 1px solid var(--line);
+}
+.lager-form input:focus, .lager-form select:focus { border-color: var(--brass); }
+.lager-farbfeld { display: flex; gap: 8px; }
+.lager-farbfeld input[type='color'] { flex: none; width: 52px; padding: 4px; cursor: pointer; }
+.lager-knoepfe { display: flex; gap: 12px; flex-wrap: wrap; }
+.lager-knoepfe .button.solid { width: auto; }
+
+/* Tabelle der Rollen */
+.lager-tabelle-rahmen { overflow-x: auto; }
+.lager-tabelle { width: 100%; border-collapse: collapse; font-size: 15px; }
+.lager-tabelle th { text-align: left; font-weight: 400; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brass); padding: 10px 12px; border-bottom: 1px solid var(--line); }
+.lager-tabelle td { padding: 14px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.lager-farbe { display: flex; gap: 12px; align-items: flex-start; }
+.lager-farbe .caption { display: block; }
+.lager-notiz { font-style: italic; }
+.lager-rest { display: grid; gap: 6px; white-space: nowrap; }
+.lager-balken { display: block; width: 110px; height: 6px; background: var(--night-3); }
+.lager-balken span { display: block; height: 100%; background: var(--brass); }
+.lager-rest.is-knapp { color: var(--brass-soft); }
+.lager-rest.is-leer { color: var(--danger); }
+.lager-rest.is-leer .lager-balken span { background: var(--danger); }
+.lager-aktionen { white-space: nowrap; text-align: right; }
+.lager-aktionen button { background: none; border: 0; padding: 4px 6px; font: 400 14px var(--sans); color: var(--brass-soft); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.lager-aktionen .lager-loeschen { color: var(--danger); }
+
+/* Handy: Tabelle wird zu Karten */
+@media (max-width: 720px) {
+  .lager-tabelle thead { display: none; }
+  .lager-tabelle, .lager-tabelle tbody, .lager-tabelle tr, .lager-tabelle td { display: block; width: 100%; }
+  .lager-tabelle tr { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .lager-tabelle td { border: 0; padding: 4px 0; }
+  .lager-aktionen { text-align: left; white-space: normal; }
+  .lager-aktionen button:first-child { padding-left: 0; }
+  .lager-form { padding: 18px 16px; }
+}
+
+/* Versteckter Einstieg in der Fußzeile: sieht aus wie normaler Text. */
+.geheim { user-select: none; -webkit-tap-highlight-color: transparent; }
+.geheim-fenster { width: min(420px, calc(100vw - 32px)); padding: 0; border: 1px solid var(--line); background: var(--night-2); color: var(--ivory); }
+.geheim-fenster::backdrop { background: rgba(5, 12, 9, 0.75); }
+.geheim-fenster .lager-form { margin: 0; border: 0; }
+
+/* Fotostudio */
+.lager-hinweis { max-width: 760px; margin-bottom: 8px; }
+.lager-haken { display: flex !important; align-items: center; gap: 10px; grid-column: 1 / -1; }
+.lager-haken input { width: auto !important; min-height: 0 !important; }
+.studio-bild { margin: 0; display: grid; gap: 14px; justify-items: start; }
+.studio-bild img { width: min(100%, 640px); height: auto; border: 1px solid var(--line); }
+.studio-bild .button.solid { width: auto; }

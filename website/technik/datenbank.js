@@ -5,6 +5,7 @@ import { mkdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { PGlite } from '@electric-sql/pglite';
 import catalog from '../../einstellungen/katalog.json';
+import { LAGER } from '../../einstellungen/lager';
 import { PROJEKT } from './pfade.js';
 
 export const DATA_DIR = process.env.ORNAMENT_DATA_DIR ?? join(PROJEKT, '.data');
@@ -24,7 +25,23 @@ async function open() {
      VALUES ($1, $2, $3, true) ON CONFLICT (version) DO NOTHING`,
     [catalog.version, content, hash],
   );
+  await lagerEinrichten(db);
   return db;
+}
+
+// Legt das Filamentlager an. Beim allerersten Mal werden die lieferbaren Katalogfarben
+// als je eine Rolle übernommen, damit der Shop nicht plötzlich ohne Farben dasteht.
+async function lagerEinrichten(db) {
+  const { rows } = await db.query(`SELECT to_regclass('public.filament_spools') AS t`);
+  await db.exec(readFileSync(join(PROJEKT, 'datenbank', 'lager.sql'), 'utf8'));
+  if (rows[0].t) return;
+  for (const farbe of catalog.colors.filter((c) => c.in_stock)) {
+    await db.query(
+      `INSERT INTO filament_spools (material, color_label, hex, remaining_g, catalog_color_id, note)
+       VALUES ($1, $2, $3, $4, $5, $6)`,
+      [farbe.material, farbe.label, farbe.hex.toUpperCase(), LAGER.neueRolleGramm, farbe.id, 'Aus katalog.json übernommen – Menge bitte prüfen'],
+    );
+  }
 }
 
 export function getDb() {

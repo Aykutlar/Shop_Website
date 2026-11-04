@@ -8,6 +8,7 @@ import { createGenerator } from '../../../../anhaenger/erzeugen.mjs';
 import { validateParams } from '../../../../anhaenger/eingabepruefung.mjs';
 import { generateCode } from '../../../technik/code.mjs';
 import { DATA_DIR, getDb } from '../../../technik/datenbank.js';
+import { lieferbar } from '../../../technik/lager.js';
 import { PROJEKT } from '../../../technik/pfade.js';
 import catalog from '../../../../einstellungen/katalog.json';
 
@@ -66,7 +67,7 @@ export async function POST(request) {
 
   const errors = validateParams(catalog, params);
   if (errors.length) return refuse(errors[0].message);
-  if (!catalog.colors.some((c) => c.id === color && c.in_stock)) return refuse('Farbe nicht verfügbar.');
+  if (!(await lieferbar()).includes(color)) return refuse('Diese Farbe ist gerade nicht vorrätig. Bitte wählen Sie eine andere.');
   const { min, max } = catalog.quantity;
   if (!Number.isInteger(quantity) || quantity < min || quantity > max) return refuse(`Anzahl ${min}–${max}.`);
 

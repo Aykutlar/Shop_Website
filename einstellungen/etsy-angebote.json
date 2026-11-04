@@ -1,0 +1,11 @@
+{
+  "_hinweis": "Ein Eintrag pro Etsy-Angebot. Form, Verzierung und Symbol stehen fest (so wie auf den Fotos); Name, Größe, Farbe, Schrift und Jahreszahl wählt der Kunde. Werte müssen in katalog.json vorkommen. etsy_listing_id nach dem Einstellen eintragen.",
+  "angebote": {
+    "kranz-schneeflocken": { "titel": "Kranz mit Schneeflocken", "shape": "wreath", "frame": "snowflakes", "symbol": "snowflake", "etsy_listing_id": null },
+    "kranz-sterne":        { "titel": "Kranz mit Sternen",       "shape": "wreath", "frame": "stars",      "symbol": "star",      "etsy_listing_id": null },
+    "kugel-tanne":         { "titel": "Christbaumkugel mit Tannenzweigen", "shape": "bauble", "frame": "fir", "symbol": "none", "etsy_listing_id": null },
+    "stern":               { "titel": "Stern",                   "shape": "star",   "frame": "plain",      "symbol": "none",      "etsy_listing_id": null },
+    "tanne":               { "titel": "Tanne",                   "shape": "tree",   "frame": "plain",      "symbol": "star",      "etsy_listing_id": null }
+  },
+  "standard": { "schrift": "pacifico", "staerke_mm": 3.0, "duese": "n04" }
+}

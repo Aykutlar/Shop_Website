@@ -11,6 +11,7 @@ import '../stil/konfigurator.css';
 import '../stil/code-fenster.css';
 import '../stil/abschnitte.css';
 import '../stil/rechtstexte.css';
+import '../stil/lager.css';
 import '../stil/bildschirmgroessen.css';
 
 export const metadata = {

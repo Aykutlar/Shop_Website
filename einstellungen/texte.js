@@ -12,7 +12,7 @@
 // ─────────────────────────────────────────────────────────────
 
 // Name deines Shops, erscheint oben links, unten und im Browser-Tab.
-export const MARKE = 'Atelier Namenszug';
+export const MARKE = 'Ayvira';
 
 // Deine Angaben für Impressum und Datenschutz. Vor dem Livegang ausfüllen.
 export const RECHTLICHES = {
@@ -65,6 +65,7 @@ export const TEXTE = {
     staerke: 'Stärke',
     farbe: 'Farbe',
     farbeHinweis: 'PETG – zäh und bruchfest',
+    keineFarbe: 'Gerade ist leider keine Farbe vorrätig. Schauen Sie bald wieder vorbei.',
     jahreszahl: 'Jahreszahl',
     jahreszahlAuswahl: 'Jahreszahl hinzufügen',
     anzahl: 'Anzahl',

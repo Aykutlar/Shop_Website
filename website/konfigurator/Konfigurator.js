@@ -32,9 +32,24 @@ export default function Konfigurator() {
   const [saved, setSaved] = useState(null);
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState(null);
+  // Bis das Lager geantwortet hat, gilt die Katalogliste; der Server prüft beim Sichern ohnehin.
+  const [farben, setFarben] = useState(() => catalog.colors.filter((c) => c.in_stock).map((c) => c.id));
   const client = useRef(null);
 
   const set = (patch) => { setForm((f) => ({ ...f, ...patch })); setSaveError(null); };
+
+  useEffect(() => {
+    let aktiv = true;
+    fetch('/api/farben')
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        if (!aktiv || !Array.isArray(data?.farben)) return;
+        setFarben(data.farben);
+        setForm((f) => (data.farben.length && !data.farben.includes(f.color) ? { ...f, color: data.farben[0] } : f));
+      })
+      .catch(() => {});
+    return () => { aktiv = false; };
+  }, []);
   const shape = catalog.shapes.find((s) => s.id === form.shape);
   const color = catalog.colors.find((c) => c.id === form.color);
   const size = catalog.sizes.find((s) => s.diameter_mm === form.diameterMm);
@@ -108,7 +123,7 @@ export default function Konfigurator() {
         <Einleitung />
 
         <form id="gestalten" className="steps" onSubmit={(e) => { e.preventDefault(); save(); }}>
-          <Schritte form={form} set={set} shape={shape} color={color} errors={errors} pickShape={pickShape} />
+          <Schritte form={form} set={set} shape={shape} color={color} farben={farben} errors={errors} pickShape={pickShape} />
           <Zusammenfassung
             form={form}
             set={set}

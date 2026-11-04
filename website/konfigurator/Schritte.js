@@ -27,7 +27,7 @@ function Option({ gruppe, aktiv, onChange, className = '', children }) {
   );
 }
 
-export default function Schritte({ form, set, shape, color, errors, pickShape }) {
+export default function Schritte({ form, set, shape, color, farben, errors, pickShape }) {
   let index = 0;
   const nummer = () => ROMAN[index++];
 
@@ -116,9 +116,9 @@ export default function Schritte({ form, set, shape, color, errors, pickShape })
         </div>
       </Schritt>
 
-      <Schritt titel={K.farbe} nummer={nummer()} hinweis={`${color.label}, ${K.farbeHinweis}`}>
+      <Schritt titel={K.farbe} nummer={nummer()} hinweis={farben.length ? `${color.label}, ${K.farbeHinweis}` : K.keineFarbe}>
         <div className="swatches">
-          {catalog.colors.filter((c) => c.in_stock).map((c) => (
+          {catalog.colors.filter((c) => farben.includes(c.id)).map((c) => (
             <label key={c.id} className={`swatch ${form.color === c.id ? 'is-on' : ''}`} title={c.label}>
               <input type="radio" name="color" aria-label={c.label} checked={form.color === c.id} onChange={() => set({ color: c.id })} />
               <span style={{ background: c.hex }} />
